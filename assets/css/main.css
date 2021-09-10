@@ -1,0 +1,24 @@
+body {
+  font-family: 'Glory', sans-serif;
+  text-align: center;
+  margin: 10px;
+}
+
+#title {
+  font-size: 200%;
+  font-weight: 600;
+}
+
+#objective {
+  font-size: 130%;
+}
+
+#reactionTimeDisplay {
+  font-size: 130%;
+  font-weight: 600;
+}
+
+#object {
+  cursor: pointer;
+}
+/*# sourceMappingURL=main.css.map */
