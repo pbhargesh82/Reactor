@@ -1,4 +1,6 @@
 // generate random hex color code
+
+
 function makeRandomColor() {
     var color = "#";
     letters = "0123456789ABCDEF".split("");
@@ -6,7 +8,7 @@ function makeRandomColor() {
     for( var i=0; i < 6; i++) {
         color += letters[Math.round(Math.random() * 15)];
     }
-
+    
     return color;
 }
 
@@ -14,6 +16,11 @@ var object = document.getElementById("object");
 var createdTime; 
 var clickedTime;
 var reactionTime;
+var reactionTimeArray = [];
+var totalReactionTime;
+var avgReactionTime;
+
+const reducer = (previousValue, currentValue) => previousValue + currentValue;
 
 function makeObject() {
     // generate height of the object
@@ -56,6 +63,9 @@ function displayAfterDelay() {
 displayAfterDelay();
 
 var reactionTimeDisplay = document.getElementById("reactionTimeDisplay");
+var totalReactionTimeDisplay = document.getElementById("totalReactionTimeDisplay");
+var objectsClicked = document.getElementById("objectsClicked");
+var avgReactionTimeDisplay = document.getElementById("avgReactionTimeDisplay");
 
 object.addEventListener("click",objectClicked);
 
@@ -67,7 +77,25 @@ function objectClicked() {
     // calculate  reacion time
     reactionTime = (clickedTime - createdTime)/1000;
     // display reaction time
-    reactionTimeDisplay.innerHTML = "Your reaction time: " + reactionTime +" sec";
+    // reactionTimeDisplay.innerHTML = "Your reaction time: " + reactionTime +" sec";
+    reactionTimeDisplay.innerHTML = reactionTime.toFixed(2) +" sec";
+    // push reactionTime to reactionTimeArray
+    reactionTimeArray.push(reactionTime);
+    totalReactionTime = reactionTimeArray.reduce(reducer);
+    // totalReactionTimeDisplay.innerHTML = "Your total reaction time: " + totalReactionTime +" sec";
+    totalReactionTimeDisplay.innerHTML = totalReactionTime.toFixed(2) +" sec";
+    // objectsClicked.innerHTML = "Objects clicked: " + reactionTimeArray.length;
+    objectsClicked.innerHTML = reactionTimeArray.length;
+    avgReactionTime = totalReactionTime/ reactionTimeArray.length;
+    // avgReactionTimeDisplay.innerHTML = "Your avg reaction time: " + avgReactionTime +" sec";
+    avgReactionTimeDisplay.innerHTML = avgReactionTime.toFixed(2) +" sec";
     // make new object
     displayAfterDelay();
+}
+
+var resetButton = document.getElementById("resetButton");
+resetButton.addEventListener("click",reset);
+
+function reset() {
+   location.reload();
 }

@@ -28,19 +28,57 @@
     </head>
     
     <body>
-        
-        <div class="container">
+
+        <div id="img"></div>
+        <!-- <div class="container"> -->
             <div id="main">
-                <p id="title"> Check Your Reactions!</p>
-                <p id="objective"> Click on the boxes or circle as quickly as you can! </p>
-                <p id="reactionTimeDisplay"> </p>
-                <div id="object"></div>
+                <div id="side" class="col-3">
+
+                    <div class="row">
+                        <p id="title"> Rector! </p>
+                        <p id="objective"> Click on the boxes or circle as quickly as you can! </p>
+                    </div>
+                    <!-- <button id="startButton" class="btn btn-primary"> Start </button> -->
+                    <!-- <button id="resultButton" class="btn btn-primary"> Result </button> -->
+                    <table>
+                        <!-- <tbody> -->
+                            <tr></tr>
+                            <tr>
+                                <th>Reaction time</th>
+                                <td id="reactionTimeDisplay"> ----- </td>
+                            </tr>
+                            <tr>
+                                <th>Total reaction time</th>
+                                <td id="totalReactionTimeDisplay"> ----- </td>
+                            </tr>
+                            <tr>
+                                <th>Objects clicked</th>
+                                <td id="objectsClicked"> ----- </td>
+                            </tr>
+                            <tr>
+                                <th>Average reaction time</th>
+                                <td id="avgReactionTimeDisplay"> ---- </td>
+                            </tr>
+                            <!-- </tbody> -->
+                        </table>
+                        <button id="resetButton" class="btn btn-primary"> Reset </button>
+                        <!-- <p id="reactionTimeDisplay"> </p>
+                        <p id="totalReactionTimeDisplay"> </p>
+                        <p id="objectsClicked"> </p>
+                        <p id="avgReactionTimeDisplay"> </p> -->
+                </div>
+                <div id="divider" class="col-1"></div>
+                <div id="area" class="col-8">
+                    <div id="box">
+                        <div id="object"></div>    
+                    </div>
+                </div>
             </div>
-        </div>
-        
+        <!-- </div> -->
+
         <!-- javascript import -->
         <script type="text/javascript" src="assets/js/script.js"></script>
             
     </body>
-    
+
 </html>
